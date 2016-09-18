@@ -1,37 +1,18 @@
 <?php
-/* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
-
-/**
- * CountdownTest unit test definition
- *
- * PHP version 5
- *
- * @category  Date
- * @package   PHP_Countdown
- * @author    Ch'Ih-Yu <chi-yu@web.de>
- * @copyright 2014 random-host.com
- * @license   http://www.debian.org/misc/bsd.license  BSD License (3 Clause)
- * @link      https://pear.random-host.com/
- */
 namespace randomhost\Date;
 
 /**
- * Unit test for ${CLASS}
+ * Unit test for Countdown
  *
- * @category  Date
- * @package   PHP_Countdown
  * @author    Ch'Ih-Yu <chi-yu@web.de>
- * @copyright 2014 random-host.com
+ * @copyright 2016 random-host.com
  * @license   http://www.debian.org/misc/bsd.license  BSD License (3 Clause)
- * @version   Release: @package_version@
- * @link      https://pear.random-host.com/
+ * @link      http://php-countdown.random-host.com
  */
 class CountdownTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Tests Countdown::__construct() with no parameters.
-     *
-     * @return void
      */
     public function testConstructNoParameters()
     {
@@ -43,16 +24,14 @@ class CountdownTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('\\DateTime', $countdown->getNow());
         $this->assertTrue($countdown->getAllowNegative());
     }
-    
+
     /**
      * Tests Countdown::__construct() with $targetDate set.
-     *
-     * @return void
      */
     public function testConstructTargetDate()
     {
         $targetDate = new \DateTime('2014-01-01');
-        
+
         $countdown = new Countdown($targetDate);
 
         $this->assertInstanceOf('randomhost\\Date\\Countdown', $countdown);
@@ -64,8 +43,6 @@ class CountdownTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Tests Countdown::__construct() with $now set.
-     *
-     * @return void
      */
     public function testConstructNow()
     {
@@ -84,11 +61,9 @@ class CountdownTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($now, $countdown->getNow());
         $this->assertTrue($countdown->getAllowNegative());
     }
-    
+
     /**
      * Tests Countdown::__construct() with $allowNegative set.
-     *
-     * @return void
      */
     public function testConstructAllowNegative()
     {
@@ -105,7 +80,7 @@ class CountdownTest extends \PHPUnit_Framework_TestCase
         $this->assertNull($countdown->getTargetDate());
         $this->assertInstanceOf('\\DateTime', $countdown->getNow());
         $this->assertFalse($countdown->getAllowNegative());
-        
+
         $countdown = new Countdown(null, null, true);
         $this->assertInstanceOf('randomhost\\Date\\Countdown', $countdown);
         $this->assertNull($countdown->getTargetDate());
@@ -115,8 +90,6 @@ class CountdownTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Tests Countdown::setTargetDate() and Countdown::getTargetDate().
-     *
-     * @return void
      */
     public function testSetGetStartDate()
     {
@@ -136,8 +109,6 @@ class CountdownTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests Countdown::setTargetDate() and Countdown::getTargetDate() with
      * disallowed negative intervals.
-     *
-     * @return void
      */
     public function testSetGetStartDateNoNegative()
     {
@@ -159,8 +130,6 @@ class CountdownTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Tests Countdown::setNow() and Countdown::getNow().
-     *
-     * @return void
      */
     public function testSetGetNow()
     {
@@ -179,8 +148,6 @@ class CountdownTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Tests Countdown::setAllowNegative() and Countdown::getAllowNegative().
-     *
-     * @return void
      */
     public function testSetGetAllowNegative()
     {
@@ -198,9 +165,7 @@ class CountdownTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Returns the difference between the given DateTime objects.
-     *
-     * @return \DateInterval
+     * Tests Countdown::getDateDiff() with a positive difference.
      */
     public function testGetDateDiff()
     {
@@ -224,9 +189,7 @@ class CountdownTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Returns the difference between the given DateTime objects.
-     *
-     * @return \DateInterval
+     * Tests Countdown::getDateDiff() with a negative difference.
      */
     public function testGetDateDiffNegative()
     {
