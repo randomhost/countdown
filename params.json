@@ -1,0 +1,6 @@
+{
+  "name": "randomhost/countdown",
+  "tagline": "Displays countdown timers on websites.",
+  "body": "[![Build Status][0]][1]\r\n\r\nIntroduction\r\n============\r\n\r\nThis package uses PHP Date functions to calculate the difference between two\r\n\\DateTime objects while adding additional functionality such as disallowing\r\nnegative values.\r\n\r\nIt is meant for displaying countdown timers on websites.\r\n\r\nUsage\r\n-----\r\n\r\nA basic approach at using this package could look like this:\r\n\r\n```php\r\n<?php\r\nnamespace randomhost\\Date;\r\n\r\nrequire_once '/path/to/vendor/autoload.php';\r\n\r\n// set default timezone\r\ndate_default_timezone_set('UTC');\r\n\r\n// setup date object\r\n$start = new \\DateTime('OCT 21 2015 04:29 PM');\r\n\r\n// setup countdown\r\n$countdown = new Countdown($start);\r\n\r\n// returns a \\DateInterval object\r\nvar_export($countdown->getDateDiff());\r\n```\r\n\r\nThis will instantiate the countdown and return a \\DateInterval object.\r\n\r\nLicense\r\n-------\r\n\r\nSee LICENSE.txt for full license details.\r\n\r\n[0]: https://travis-ci.org/randomhost/countdown.svg?branch=master\r\n[1]: https://travis-ci.org/randomhost/countdown\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
