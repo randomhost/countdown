@@ -1,30 +1,13 @@
 <?php
-/* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
-
-/**
- * Countdown class definition
- *
- * PHP version 5
- *
- * @category  Date
- * @package   PHP_Countdown
- * @author    Ch'Ih-Yu <chi-yu@web.de>
- * @copyright 2014 random-host.com
- * @license   http://www.debian.org/misc/bsd.license  BSD License (3 Clause)
- * @link      https://pear.random-host.com/
- */
 namespace randomhost\Date;
 
 /**
  * Provides methods for counting down to a particular date.
  *
- * @category  Date
- * @package   PHP_Countdown
  * @author    Ch'Ih-Yu <chi-yu@web.de>
- * @copyright 2014 random-host.com
+ * @copyright 2016 random-host.com
  * @license   http://www.debian.org/misc/bsd.license  BSD License (3 Clause)
- * @version   Release: @package_version@
- * @link      https://pear.random-host.com/
+ * @link      http://php-countdown.random-host.com
  */
 class Countdown
 {
@@ -59,7 +42,9 @@ class Countdown
      *                                 (Default: true)
      */
     public function __construct(
-        \DateTime $targetDate = null, \DateTime $now = null, $allowNegative = true
+        \DateTime $targetDate = null,
+        \DateTime $now = null,
+        $allowNegative = true
     ) {
         if (null !== $now) {
             $this->setNow($now);
